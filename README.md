@@ -1,4 +1,4 @@
-# Dat Skill
+# Dat Skill- Let your agent train stuff on DAT GPU cloud
 
 Agent Skill for operating Dat cloud training.
 
