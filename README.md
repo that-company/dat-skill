@@ -42,13 +42,6 @@ mkdir -p "$HOME/.claude/skills"
 git clone https://github.com/that-company/dat-skill.git "$HOME/.claude/skills/dat-skill"
 ```
 
-Install for one project:
-
-```bash
-mkdir -p .claude/skills
-git clone https://github.com/that-company/dat-skill.git .claude/skills/dat-skill
-```
-
 Use it automatically by asking for cloud training, or invoke it directly:
 
 ```text
@@ -56,17 +49,6 @@ Use it automatically by asking for cloud training, or invoke it directly:
 ```
 
 Use Claude Code’s `/skills` menu to view or change skill visibility.
-
-### Claude.ai
-
-Claude.ai has a UI upload flow. Create a ZIP first:
-
-```bash
-git clone https://github.com/that-company/dat-skill.git
-zip -r dat-skill.zip dat-skill -x "dat-skill/.git/*"
-```
-
-Then open Claude.ai, go to `Customize > Skills`, create a skill, and upload `dat-skill.zip`.
 
 ### Cursor
 
@@ -77,19 +59,6 @@ mkdir -p "$HOME/.cursor/skills"
 git clone https://github.com/that-company/dat-skill.git "$HOME/.cursor/skills/dat-skill"
 ```
 
-Install for one project:
-
-```bash
-mkdir -p .cursor/skills
-git clone https://github.com/that-company/dat-skill.git .cursor/skills/dat-skill
-```
-
-Cursor also reads Agent Skills from `.agents/skills/` and `~/.agents/skills/`, so this works too:
-
-```bash
-mkdir -p "$HOME/.agents/skills"
-git clone https://github.com/that-company/dat-skill.git "$HOME/.agents/skills/dat-skill"
-```
 
 ## Contents
 
