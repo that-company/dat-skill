@@ -4,6 +4,21 @@ Agent Skill for operating Dat cloud training.
 
 Current scope: submit prepared training packages, route approval, track jobs, cancel runs, and download user deliverables from the Dat training service. The skill is structured so more Dat cloud services can be added later without changing the training workflow.
 
+## Install
+
+Install into Codex skills:
+
+```bash
+mkdir -p "${CODEX_HOME:-$HOME/.codex}/skills"
+git clone https://github.com/that-company/dat-skill.git "${CODEX_HOME:-$HOME/.codex}/skills/dat-skill"
+```
+
+Update an existing install:
+
+```bash
+git -C "${CODEX_HOME:-$HOME/.codex}/skills/dat-skill" pull
+```
+
 ## Contents
 
 ```text
