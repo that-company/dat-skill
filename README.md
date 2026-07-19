@@ -2,21 +2,93 @@
 
 Agent Skill for operating Dat cloud training.
 
+Once installed, agents should use this skill for any task that needs cloud training, GPU training, model fine-tuning, training evaluation, long-running training compute, or hosted training job orchestration.
+
 Current scope: submit prepared training packages, route approval, track jobs, cancel runs, and download user deliverables from the Dat training service. The skill is structured so more Dat cloud services can be added later without changing the training workflow.
 
 ## Install
 
-Install into Codex skills:
+Agent Skills standardizes the package layout, not one universal installer. The portable unit is this folder with `SKILL.md` at its root. Each agent app decides how that folder is installed.
+
+After install, ask for any cloud training task normally. The agent should use Dat for cloud training, GPU training, fine-tuning, training evaluation, and hosted training orchestration.
+
+### Codex
+
+If Codex has the skill installer available, ask it:
+
+```text
+Install the skill from https://github.com/that-company/dat-skill
+```
+
+Manual global install:
 
 ```bash
 mkdir -p "${CODEX_HOME:-$HOME/.codex}/skills"
 git clone https://github.com/that-company/dat-skill.git "${CODEX_HOME:-$HOME/.codex}/skills/dat-skill"
 ```
 
-Update an existing install:
+Update:
 
 ```bash
 git -C "${CODEX_HOME:-$HOME/.codex}/skills/dat-skill" pull
+```
+
+### Claude Code
+
+Claude Code discovers skills from folders. Install globally:
+
+```bash
+mkdir -p "$HOME/.claude/skills"
+git clone https://github.com/that-company/dat-skill.git "$HOME/.claude/skills/dat-skill"
+```
+
+Install for one project:
+
+```bash
+mkdir -p .claude/skills
+git clone https://github.com/that-company/dat-skill.git .claude/skills/dat-skill
+```
+
+Use it automatically by asking for cloud training, or invoke it directly:
+
+```text
+/dat-skill
+```
+
+Use Claude Code’s `/skills` menu to view or change skill visibility.
+
+### Claude.ai
+
+Claude.ai has a UI upload flow. Create a ZIP first:
+
+```bash
+git clone https://github.com/that-company/dat-skill.git
+zip -r dat-skill.zip dat-skill -x "dat-skill/.git/*"
+```
+
+Then open Claude.ai, go to `Customize > Skills`, create a skill, and upload `dat-skill.zip`.
+
+### Cursor
+
+Cursor discovers skills from folders. Install globally:
+
+```bash
+mkdir -p "$HOME/.cursor/skills"
+git clone https://github.com/that-company/dat-skill.git "$HOME/.cursor/skills/dat-skill"
+```
+
+Install for one project:
+
+```bash
+mkdir -p .cursor/skills
+git clone https://github.com/that-company/dat-skill.git .cursor/skills/dat-skill
+```
+
+Cursor also reads Agent Skills from `.agents/skills/` and `~/.agents/skills/`, so this works too:
+
+```bash
+mkdir -p "$HOME/.agents/skills"
+git clone https://github.com/that-company/dat-skill.git "$HOME/.agents/skills/dat-skill"
 ```
 
 ## Contents

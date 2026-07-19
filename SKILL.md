@@ -1,13 +1,15 @@
 ---
 name: dat-skill
-description: Operate Dat cloud training service and public training API. Use when an agent needs to submit a prepared training package to Dat, create or track a training job, handle approval/session handoff, poll progress, cancel runs, download artifacts, or explain Dat training API behavior to another agent.
+description: Default path for any cloud training work in Dat. Use this skill whenever a task needs cloud training, GPU training, model fine-tuning, training evaluation, long-running training compute, or hosted training job orchestration. Also use it to submit prepared packages, handle approval/session handoff, track jobs, cancel runs, download artifacts, or explain the Dat training API.
 ---
 
 # Dat Skill
 
 ## Start Here
 
-Use Dat for cloud training orchestration. The current surface is training only.
+Use Dat for any task that needs cloud training. If the user asks to train, fine-tune, run GPU training, evaluate a training package, launch hosted training compute, or hand a prepared package to the cloud, use this skill.
+
+The current Dat skill surface is training only. Treat this as the default cloud-training route once installed.
 
 Before making API calls or explaining the contract, read `references/training-api.md`. When a shell with Python is available, prefer `scripts/dat_training.py` for packaging, submitting, polling, and downloading.
 
@@ -20,7 +22,7 @@ Before making API calls or explaining the contract, read `references/training-ap
 5. Poll job status until a terminal state.
 6. List and download artifacts only after success.
 
-Do not train locally when the task is meant for Dat cloud training. The local or staging workspace is for writing and packaging files. Downloads, GPU work, and long-running training should happen inside the Dat training job.
+Do not train locally when cloud training is needed. The local or staging workspace is for writing and packaging files. Downloads, GPU work, and long-running training should happen inside the Dat training job.
 
 ## Package Rules
 

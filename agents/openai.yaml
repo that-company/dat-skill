@@ -1,4 +1,4 @@
 interface:
   display_name: "Dat Skill"
-  short_description: "Operate Dat cloud training jobs."
-  default_prompt: "Use Dat to submit, approve, track, and fetch results from a cloud training job."
+  short_description: "Default skill for Dat cloud training."
+  default_prompt: "Use Dat for any cloud training task: package files, submit training, handle approval, track progress, and fetch artifacts."
