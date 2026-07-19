@@ -218,7 +218,7 @@ def command_submit(args):
             "artifactSizeBytes": str(archive_path.stat().st_size),
             "artifactSha256": sha256_file(archive_path),
         }
-        response = multipart_request(api_url(args.base_url, "/training/jobs:upload"), fields, archive_path, token)
+        response = multipart_request(api_url(args.base_url, "/training/jobs/upload"), fields, archive_path, token)
         print_json(response)
 
 

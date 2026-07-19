@@ -1,4 +1,4 @@
-# Dat Training API
+# Dat Train API
 
 Default base URL:
 
@@ -23,7 +23,7 @@ Use a user API key for authenticated intake, or the returned temporary key for o
 Use the one-step endpoint for normal agent integrations:
 
 ```http
-POST /training/jobs:upload
+POST /training/jobs/upload
 Content-Type: multipart/form-data
 ```
 
@@ -62,41 +62,13 @@ Authenticated response shape includes `sessionId`, `sessionUrl`, API URLs, and a
 Example:
 
 ```bash
-curl -sS -X POST "https://api.thatcompany.ai/v1/training/jobs:upload" \
+curl -sS -X POST "https://api.thatcompany.ai/v1/training/jobs/upload" \
   -F "title=Training smoke" \
   -F "instruction=Run ./run_all.sh and publish /tmp/dat-output deliverables." \
   -F "artifactName=artifact.tar.gz" \
   -F "artifactContentType=application/gzip" \
   -F "artifact=@artifact.tar.gz;type=application/gzip"
 ```
-
-## Two-Step Upload
-
-Two-step upload exists for clients that need to create metadata before streaming bytes.
-
-Create:
-
-```http
-POST /training/jobs
-Content-Type: application/json
-```
-
-Body:
-
-```json
-{
-  "title": "Training title",
-  "instruction": "Run ./run_all.sh and publish /tmp/dat-output deliverables.",
-  "artifact": {
-    "name": "artifact.tar.gz",
-    "contentType": "application/gzip",
-    "sizeBytes": 1234,
-    "sha256": "..."
-  }
-}
-```
-
-Upload bytes to the returned `upload.url` with `PUT`, then use the returned approval/status URLs.
 
 ## Approval
 
